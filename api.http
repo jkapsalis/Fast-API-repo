@@ -1,0 +1,38 @@
+POST http://localhost:8000/customers/
+Content-Type: application/json
+
+{
+  "name": "Zildrunas Ilgauskas",
+  "email": "Ilgauskas@example.com",
+  "phone": "6985992708"
+}
+
+##Retrieve the created customer by ID
+GET http://localhost:8000/customers/1
+
+#Create a new order
+POST http://localhost:8000/orders/
+Content-Type: application/json
+
+{
+  "customer_id": 1,
+  "products": [1, 2]
+}
+
+#Update the order status
+PATCH http://localhost:8000/orders/1/status
+Content-Type: application/json
+
+{
+  "status": "shipped"
+}
+
+# Make a payment
+POST http://localhost:8000/payments/
+Content-Type: application/json
+
+{
+  "order_id": 1,
+  "amount": 30,
+  "payment_method": "credit card"
+}
