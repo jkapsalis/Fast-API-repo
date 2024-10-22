@@ -1,16 +1,35 @@
+### 1. Get all customers
+GET http://localhost:8000/customers/
+
+### 2. Create a new customer
 POST http://localhost:8000/customers/
 Content-Type: application/json
 
 {
-  "name": "Zildrunas Ilgauskas",
-  "email": "Ilgauskas@example.com",
+  "name": "Zydrunas Ilgauskas",
+  "email": "ilgauskas@example.com",
   "phone": "6985992708"
 }
 
-##Retrieve the created customer by ID
+### 3. Get a customer by ID
 GET http://localhost:8000/customers/1
 
-#Create a new order
+### 4. Create a new product
+POST http://localhost:8000/products/
+Content-Type: application/json
+
+{
+  "name": "Basketball",
+  "price": 30
+}
+
+### 5. Get all products
+GET http://localhost:8000/products/
+
+### 6. Get a product by ID
+GET http://localhost:8000/products/1
+
+### 7. Place a new order
 POST http://localhost:8000/orders/
 Content-Type: application/json
 
@@ -19,7 +38,13 @@ Content-Type: application/json
   "products": [1, 2]
 }
 
-#Update the order status
+### 8. Get all orders
+GET http://localhost:8000/orders/
+
+### 9. Get order status by ID
+GET http://localhost:8000/orders/status/1
+
+### 10. Update order status
 PATCH http://localhost:8000/orders/1/status
 Content-Type: application/json
 
@@ -27,12 +52,12 @@ Content-Type: application/json
   "status": "shipped"
 }
 
-# Make a payment
+### 11. Make a payment
 POST http://localhost:8000/payments/
 Content-Type: application/json
 
 {
   "order_id": 1,
-  "amount": 30,
+  "amount": 61,
   "payment_method": "credit card"
 }
